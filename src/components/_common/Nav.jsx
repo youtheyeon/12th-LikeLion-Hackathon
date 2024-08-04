@@ -1,13 +1,15 @@
+import React from "react";
 import styled from "styled-components";
 
 import { ReactComponent as Back } from "../../assets/icons/back.svg";
 
-function Nav({ text = "" }) {
+function Nav({ text = "", isComplete = false }) {
   return (
-    <Wrapper>
+    <Wrapper isComplete={isComplete}>
       <div>
         <Back />
         <span>{text}</span>
+        <p>완료</p>
       </div>
     </Wrapper>
   );
@@ -32,6 +34,15 @@ const Wrapper = styled.div`
     svg {
       position: absolute;
       left: 0;
+    }
+
+    p {
+      position: absolute;
+      right: 11px;
+      font-weight: 400;
+      color: ${(props) =>
+        props.isComplete ? "var(--bk, #191919)" : "var(--gray03, #f3f3f3)"};
+      cursor: pointer;
     }
   }
 `;

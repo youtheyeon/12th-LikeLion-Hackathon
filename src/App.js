@@ -3,6 +3,7 @@ import MainPage from "./pages/MainPage";
 import SharePage from "./pages/SharePage";
 import ChatRoomPage from "./pages/ChatRoomPage";
 import ChatCommentPage from "./pages/ChatCommentPage";
+import NewRoomPage from "./pages/NewRoomPage";
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       {/* <MainPage /> */}
       {/* <SharePage /> */}
       {/* <ChatRoomPage /> */}
-      <ChatCommentPage />
+      {/* <ChatCommentPage /> */}
+      <NewRoomPage />
     </>
   );
 }
