@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 import { ReactComponent as Back } from "../../assets/icons/back.svg";
 
-function Nav() {
+function Nav({ text = "" }) {
   return (
     <Wrapper>
       <div>
         <Back />
-        <span>스토리 공유하기</span>
+        <span>{text}</span>
       </div>
     </Wrapper>
   );

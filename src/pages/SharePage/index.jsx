@@ -4,7 +4,7 @@ import StoryMaker from "../../components/sharepage/StoryMaker";
 function SharePage() {
   return (
     <>
-      <Nav />
+      <Nav text="스토리 공유하기" />
       <StoryMaker />
     </>
   );
