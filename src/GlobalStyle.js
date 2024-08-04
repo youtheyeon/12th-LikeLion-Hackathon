@@ -30,6 +30,11 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
     line-height: normal;
   }
+
+  input, textarea {
+    border: none;
+    outline: none;
+  }
   
   button {
     cursor: pointer;

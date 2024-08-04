@@ -1,7 +1,8 @@
-import MainPage from "./pages/MainPage";
 import GlobalStyles from "./GlobalStyle";
+import MainPage from "./pages/MainPage";
 import SharePage from "./pages/SharePage";
 import ChatRoomPage from "./pages/ChatRoomPage";
+import ChatCommentPage from "./pages/ChatCommentPage";
 
 function App() {
   return (
@@ -9,7 +10,8 @@ function App() {
       <GlobalStyles />
       {/* <MainPage /> */}
       {/* <SharePage /> */}
-      <ChatRoomPage />
+      {/* <ChatRoomPage /> */}
+      <ChatCommentPage />
     </>
   );
 }
