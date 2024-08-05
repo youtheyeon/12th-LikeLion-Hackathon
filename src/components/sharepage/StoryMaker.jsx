@@ -101,6 +101,7 @@ const StoryMaker = () => {
   };
 
   const handleTouchStart = (e) => {
+    e.preventDefault();
     const touch = e.touches[0];
     handleStart(touch.clientX, touch.clientY);
   };
@@ -306,6 +307,11 @@ const ColorPalette = styled.div`
     display: flex;
     gap: 15px;
     overflow-x: scroll;
+
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 `;
 
