@@ -18,13 +18,26 @@ const StoryMaker = () => {
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const canvasRef = useRef(null);
 
-  const colors = ["black", "red", "yellow", "green", "cyan"];
+  const colors = [
+    "white",
+    "#FE0000",
+    "#F4B53A",
+    "#FED500",
+    "#3AEFC4",
+    "#5FCFF2",
+    "#9A00F8",
+    "black",
+  ];
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     const reader = new FileReader();
     reader.onload = (event) => {
-      setImage(event.target.result);
+      const img = new Image();
+      img.src = event.target.result;
+      img.onload = () => {
+        setImage(img);
+      };
     };
     reader.readAsDataURL(file);
   };
@@ -54,35 +67,32 @@ const StoryMaker = () => {
     if (image) {
       const canvas = canvasRef.current;
       const ctx = canvas.getContext("2d");
-      const img = new Image();
-      img.src = image;
-      img.onload = () => {
-        const canvasWidth = 359;
-        const canvasHeight = 479;
 
-        let imgWidth = img.width;
-        let imgHeight = img.height;
+      const canvasWidth = 359;
+      const canvasHeight = 479;
 
-        if (imgWidth > canvasWidth || imgHeight > canvasHeight) {
-          const widthRatio = canvasWidth / imgWidth;
-          const heightRatio = canvasHeight / imgHeight;
-          const bestRatio = Math.min(widthRatio, heightRatio);
+      let imgWidth = image.width;
+      let imgHeight = image.height;
 
-          imgWidth *= bestRatio;
-          imgHeight *= bestRatio;
-        }
+      if (imgWidth > canvasWidth || imgHeight > canvasHeight) {
+        const widthRatio = canvasWidth / imgWidth;
+        const heightRatio = canvasHeight / imgHeight;
+        const bestRatio = Math.min(widthRatio, heightRatio);
 
-        canvas.width = canvasWidth;
-        canvas.height = canvasHeight;
-        ctx.clearRect(0, 0, canvasWidth, canvasHeight);
-        ctx.drawImage(img, 0, 0, imgWidth, imgHeight);
+        imgWidth *= bestRatio;
+        imgHeight *= bestRatio;
+      }
 
-        textList.forEach(({ text, x, y, color, fontSize }) => {
-          ctx.font = `${fontSize}px Arial`;
-          ctx.fillStyle = color;
-          ctx.fillText(text, x, y);
-        });
-      };
+      canvas.width = canvasWidth;
+      canvas.height = canvasHeight;
+      ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+      ctx.drawImage(image, 0, 0, imgWidth, imgHeight);
+
+      textList.forEach(({ text, x, y, color, fontSize }) => {
+        ctx.font = `${fontSize}px Arial`;
+        ctx.fillStyle = color;
+        ctx.fillText(text, x, y);
+      });
     }
   };
 
@@ -142,6 +152,7 @@ const StoryMaker = () => {
   };
 
   const handleTouchMove = (e) => {
+    e.preventDefault();
     const touch = e.touches[0];
     handleMove(touch.clientX, touch.clientY);
   };
