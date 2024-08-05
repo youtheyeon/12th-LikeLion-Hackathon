@@ -56,7 +56,7 @@ const Header = styled.div`
   margin: 63px 0 17px;
 
   color: var(--bk, #191919);
-  font-family: Transducer;
+  font-family: transducer, sans-serif;
   font-size: 20px;
   font-weight: 500;
 `;

@@ -42,13 +42,13 @@ const Slide = styled.div`
   border-radius: 2.955px;
   border: ${({ isMyStory }) => isMyStory && "1px solid #d6d6d6"};
   background: var(--gray03, #f3f3f3);
+  overflow: hidden;
 
   img {
     position: absolute;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    overflow: hidden;
   }
 
   &:last-child {
