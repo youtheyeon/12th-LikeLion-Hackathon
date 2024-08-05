@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import userData from "../../store/userData.json";
+import { ReactComponent as AddIcon } from "../../assets/icons/add-story.svg";
 
 function Story({ s }) {
   const navigate = useNavigate();
@@ -17,6 +18,7 @@ function Story({ s }) {
       <Profile isMyStory={isMyStory} onClick={addMyStory}>
         <div>
           <img src={userData.users[s.userId].img} alt="sample" />
+          {isMyStory && <AddIcon />}
         </div>
         <span>
           {isMyStory ? "내 스토리" : `${userData.users[s.userId].userName}`}
@@ -67,6 +69,7 @@ const Profile = styled.div`
   font-weight: 600;
 
   div {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -83,6 +86,12 @@ const Profile = styled.div`
       flex-shrink: 0;
       border-radius: 50%;
       cursor: pointer;
+    }
+
+    svg {
+      position: absolute;
+      bottom: 0;
+      right: 0;
     }
   }
 
