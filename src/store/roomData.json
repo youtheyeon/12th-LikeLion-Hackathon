@@ -1,0 +1,25 @@
+{
+  "room": [
+    {
+      "roomId": 0,
+      "roomName": "이화여대 식단방",
+      "roomNum": 12,
+      "thumbnail": "https://i.namu.wiki/i/ayDlxOs9HFBzgePxztJKfSDiUuNd8B-9PcWMbTxBhr4kwAEqbHfVo9Cuahbfi-cLKW2VO3lJ47Wi52SBl-iaQg.svg",
+      "date": "12:22"
+    },
+    {
+      "roomId": 1,
+      "roomName": "건강하게 먹기🌿",
+      "roomNum": 10,
+      "thumbnail": "https://img1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/cGSm/image/jURVrN7_RIKIktfeLv9wNVkINSY.jpg",
+      "date": "07:25"
+    },
+    {
+      "roomId": 2,
+      "roomName": "밀가루 끊기 10일차",
+      "roomNum": 6,
+      "thumbnail": "https://cdn.mindgil.com/news/photo/202209/75118_15370_5357.jpg",
+      "date": "14:52"
+    }
+  ]
+}

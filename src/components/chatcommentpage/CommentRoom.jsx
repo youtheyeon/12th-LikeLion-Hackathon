@@ -1,16 +1,36 @@
 import styled from "styled-components";
-
+import { useParams } from "react-router-dom";
 import ChatPhoto from "./ChatPhoto";
 import CommentItem from "./CommentItem";
+import commentData from "../../store/commentData.json";
 
 function CommentRoom() {
+  let { id, cId } = useParams();
+  const comments = commentData[id]?.[cId] || [];
+
   return (
     <>
       <Hr />
       <Wrapper>
         <ChatPhoto />
-        <CommentItem nextChat={false} />
-        <CommentItem isPrevSame={true} nextChat={false} />
+        {comments.map((c, index) => {
+          const isPrevSame =
+            index > 0 ? comments[index - 1].userId === c.userId : false;
+          const nextChat = index < comments.length - 1;
+          const isNextSame =
+            comments[index + 1] && comments[index + 1].userId === c.userId;
+
+          console.log(isNextSame);
+          return (
+            <CommentItem
+              key={c.id}
+              c={c}
+              isPrevSame={isPrevSame}
+              nextChat={nextChat}
+              isNextSame={isNextSame}
+            />
+          );
+        })}
       </Wrapper>
       <Hr />
     </>
@@ -24,7 +44,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 20px;
-  margin: 26px 13px;
+  margin: 26px 13px 98px;
 `;
 
 const Hr = styled.div`

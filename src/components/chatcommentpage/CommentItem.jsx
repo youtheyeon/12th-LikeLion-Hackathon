@@ -1,29 +1,26 @@
 import styled from "styled-components";
-
-import sample from "../../assets/images/sample-photo.png";
 import { ReactComponent as Delete } from "../../assets/icons/delete.svg";
+import userData from "../../store/userData.json";
 
-function CommentItem({ isPrevSame = false, nextChat = true }) {
+function CommentItem({
+  c,
+  isPrevSame = false,
+  nextChat = true,
+  isNextSame = false,
+}) {
   return (
     <Item isPrevSame={isPrevSame}>
       <div className="profile">
-        {isPrevSame || <img src={sample} alt="profile" />}
+        {isPrevSame || <img src={userData.users[c.userId].img} alt="profile" />}
       </div>
       <div className="content">
-        {isPrevSame || <span>배기진</span>}
+        {isPrevSame || <span>{userData.users[c.userId].userName}</span>}
         <div>
-          <p>
-            회원님? 이것 뭐에요??🧐 회원님? 이것 뭐에요??🧐회원님? 이것
-            뭐에요??🧐회원님? 이것 뭐에요??🧐
-          </p>
+          <p>{c.content}</p>
           <Delete />
         </div>
-        {/* <div>
-          <img src={sample} alt="sample" />
-          <Delete />
-        </div> */}
       </div>
-      {nextChat && <Line />}
+      {nextChat && !isNextSame && <Line />}
     </Item>
   );
 }

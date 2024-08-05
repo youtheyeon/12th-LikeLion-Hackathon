@@ -1,17 +1,19 @@
 import styled from "styled-components";
 
 import Story from "./Story";
+import storyData from "../../store/storyData.json";
 
 function UserStory() {
   return (
     <Wrapper>
       <HeaderText>
-        <span>내가 올린 식단샷 23개</span>
-        <button>친구 편집</button>
+        <span>친구들의 식단 스토리</span>
+        {/* <button>친구 편집</button> */}
       </HeaderText>
       <StorySlide>
-        <Story isMyStory={true} />
-        <Story />
+        {storyData[0].map((s) => (
+          <Story key={s.id} s={s} />
+        ))}
       </StorySlide>
     </Wrapper>
   );

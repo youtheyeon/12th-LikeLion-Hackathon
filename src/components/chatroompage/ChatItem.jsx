@@ -1,19 +1,31 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import sample from "../../assets/images/sample-photo.png";
+import userData from "../../store/userData.json";
+import commentData from "../../store/commentData.json";
 
-function ChatItem({ isMy = false }) {
+function ChatItem({ c, roomId }) {
   const navigate = useNavigate();
+
+  const isMy = c.userId === 0 ? true : false;
+
+  const goComment = () => {
+    navigate(`/chat/${roomId}/${c.chatId}`, {
+      state: { c },
+    });
+  };
 
   return (
     <Item isMy={isMy}>
-      {isMy || <img src={sample} alt="profile" />}
+      {isMy || <img src={userData.users[c.userId].img} alt="profile" />}
       <div className="content">
-        {isMy || <span>배기진</span>}
-        <p>오늘 1번째 인증샷을 올렸어요</p>
-        <img src={sample} alt="sample" />
-        <div onClick={() => navigate("/chat/1/1")}>
-          댓글 <b style={{ fontWeight: "600" }}>4</b>
+        {isMy || <span>{userData.users[c.userId].userName}</span>}
+        <p>오늘 {c.chatId}번째 인증샷을 올렸어요</p>
+        <img src={c.thumbnail} alt="thumbnail" />
+        <div onClick={goComment}>
+          댓글{" "}
+          <b style={{ fontWeight: "600" }}>
+            {commentData[roomId]?.[c.chatId]?.length}
+          </b>
         </div>
       </div>
     </Item>
@@ -58,6 +70,7 @@ const Item = styled.div`
       width: 260px;
       height: 270px;
       border-radius: 10px;
+      object-fit: cover;
     }
 
     div {

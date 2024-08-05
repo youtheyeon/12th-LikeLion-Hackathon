@@ -1,30 +1,40 @@
 import styled from "styled-components";
-
-import sample from "../../assets/images/sample-photo.png";
 import { ReactComponent as Setting } from "../../assets/icons/setting.svg";
+import userData from "../../store/userData.json";
 
 function UserMain() {
   return (
     <Wrapper>
       <Header>
-        <div>서비스명</div>
+        <div>식단방</div>
         <Setting />
       </Header>
       <Hr />
       <MyInfoBox>
         <div>
-          <b>한번사는인생두렵지않아</b>님
+          <b>{userData.users[0].userName}</b>님
           <br />
           오늘은 식단샷을
           <br />
-          <b>3번</b> 올려주셨네요
+          <b>0번</b> 올려주셨네요
         </div>
-        <img src={sample} alt="Sample" />
+        <img src={userData.users[0].img} alt="Sample" />
       </MyInfoBox>
       <MyPhotoSlide>
-        <span>내가 올린 식단샷 23개</span>
+        <span>내가 올린 식단샷 3개</span>
         <Slide>
-          <img src={sample} alt="Sample" />
+          <img
+            src="https://recipe1.ezmember.co.kr/cache/recipe/2022/11/22/534dee38b3fe0bc9b982c946a8324f151.jpg"
+            alt="meal"
+          />
+          <img
+            src="https://recipe1.ezmember.co.kr/cache/recipe/2018/05/12/95410f1f00232d6fbaf170646b386d961.jpg"
+            alt="meal"
+          />
+          <img
+            src="https://ssproxy.ucloudbiz.olleh.com/v1/AUTH_e59809eb-bdc9-44d7-9d8f-2e7f0e47ba91/post_card/73871_1606976485_tnDl2yAo.png"
+            alt="meal"
+          />
         </Slide>
       </MyPhotoSlide>
     </Wrapper>
@@ -108,5 +118,13 @@ const Slide = styled.div`
   -ms-overflow-style: none;
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  img {
+    width: 67px;
+    height: 67px;
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 5.403px;
   }
 `;

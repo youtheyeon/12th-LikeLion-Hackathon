@@ -20,7 +20,7 @@ function App() {
         <Route path={"/main"} element={<MainPage />} />
         <Route path={"/share"} element={<SharePage />} />
         <Route path={"/chat/:id"} element={<ChatRoomPage />} />
-        <Route path={"/chat/:id/:pId"} element={<ChatCommentPage />} />
+        <Route path={"/chat/:id/:cId"} element={<ChatCommentPage />} />
         <Route path={"/newchat"} element={<NewRoomPage />} />
       </Routes>
     </>

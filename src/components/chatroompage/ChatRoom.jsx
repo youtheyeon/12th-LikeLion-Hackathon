@@ -1,16 +1,20 @@
 import styled from "styled-components";
-
+import { useParams } from "react-router-dom";
 import ChatItem from "./ChatItem";
+import chatData from "../../store/chatData.json";
 
 function ChatRoom() {
+  let { id } = useParams();
+
   return (
     <>
       <Hr />
       <Wrapper>
         <DayChat>
-          <ChatDate>2024년 6월 20일 목요일</ChatDate>
-          <ChatItem />
-          <ChatItem isMy={true} />
+          <ChatDate>2024년 8월 6일 화요일</ChatDate>
+          {chatData[id].map((c) => (
+            <ChatItem key={c.chatId} c={c} roomId={id} />
+          ))}
         </DayChat>
       </Wrapper>
     </>

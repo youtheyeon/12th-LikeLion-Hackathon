@@ -1,0 +1,23 @@
+{
+  "0": [
+    {
+      "id": 1,
+      "userId": 0
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "thumbnail": "https://recipe1.ezmember.co.kr/cache/recipe/2020/11/11/6303fec09cd55eb03898052936d0d8671.png"
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "thumbnail": "https://api.nudge-community.com/attachments/6931766"
+    },
+    {
+      "id": 3,
+      "userId": 3,
+      "thumbnail": "https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/272/54f1e90c48fac57b4340aca38054e80e_res.jpeg"
+    }
+  ]
+}

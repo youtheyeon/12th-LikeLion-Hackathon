@@ -1,0 +1,56 @@
+{
+  "0": [
+    {
+      "chatId": 1,
+      "userId": 1,
+      "thumbnail": "https://www.foodjang.com/New/05/221806880/221806880_b_1.jpg",
+      "commentNum": 4
+    },
+    {
+      "chatId": 2,
+      "userId": 0,
+      "thumbnail": "https://recipe1.ezmember.co.kr/cache/recipe/2022/11/22/534dee38b3fe0bc9b982c946a8324f151.jpg",
+      "commentNum": 1
+    },
+    {
+      "chatId": 3,
+      "userId": 2,
+      "thumbnail": "https://api.nudge-community.com/attachments/6931766",
+      "commentNum": 0
+    }
+  ],
+  "1": [
+    {
+      "chatId": 1,
+      "userId": 0,
+      "thumbnail": "https://mblogthumb-phinf.pstatic.net/MjAyMDA4MTlfMTEy/MDAxNTk3ODQ4NDcyNjI0.loxQI7tJXCZKj9Ysp9lixNnBEyq8wDgzblD1WCRd_REg.vF0Prd5934fgYIWWeYDJ2n1GjTnJF1xh81zgsNSCEpYg.PNG.llzzinll/SE-09383631-c591-4462-aa1c-baf92e8ec2b3.png?type=w800",
+      "commentNum": 4
+    },
+    {
+      "chatId": 2,
+      "userId": 3,
+      "thumbnail": "https://recipe1.ezmember.co.kr/cache/recipe/2021/01/18/2cd7a65abf0fb03d882fbd6bbec7c8641.jpg",
+      "commentNum": 1
+    },
+    {
+      "chatId": 3,
+      "userId": 2,
+      "thumbnail": "https://img.seoul.co.kr//img/upload/2023/07/24/SSC_20230724111211.jpg",
+      "commentNum": 0
+    }
+  ],
+  "2": [
+    {
+      "chatId": 1,
+      "userId": 1,
+      "thumbnail": "https://recipe1.ezmember.co.kr/cache/recipe/2022/03/31/1e58bef999cd6ab6a87c258b8acb84ce1.jpg",
+      "commentNum": 0
+    },
+    {
+      "chatId": 2,
+      "userId": 3,
+      "thumbnail": "https://recipe1.ezmember.co.kr/cache/recipe/2023/01/06/64d13f5dc569c88601b53868feee474c1.jpg",
+      "commentNum": 0
+    }
+  ]
+}

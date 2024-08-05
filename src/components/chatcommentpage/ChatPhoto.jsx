@@ -1,18 +1,20 @@
 import styled from "styled-components";
-
-import sample from "../../assets/images/sample-photo.png";
+import { useLocation } from "react-router-dom";
+import userData from "../../store/userData.json";
 
 function ChatPhoto() {
+  const location = useLocation();
+  const c = location.state.c;
   return (
     <Item>
       <Profile>
-        <img src={sample} alt="profile" />
+        <img src={userData.users[c.userId].img} alt="profile" />
         <div>
-          <span>배기진</span>
-          <p style={{ color: "#c0c0c0" }}>오늘 1번째 인증샷이에요</p>
+          <span>{userData.users[c.userId].userName}</span>
+          <p style={{ color: "#c0c0c0" }}>오늘 {c.chatId}번째 인증샷이에요</p>
         </div>
       </Profile>
-      <img src={sample} alt="sample" />
+      <img src={c.thumbnail} alt="sample" />
       <Line />
     </Item>
   );

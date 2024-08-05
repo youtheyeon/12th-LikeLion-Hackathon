@@ -1,8 +1,9 @@
-import React, { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
 import addChatIcon from "../../assets/icons/add-chat-icon.svg";
+import roomData from "../../store/roomData.json";
+import chatData from "../../store/chatData.json";
 
 function ChatList() {
   const navigate = useNavigate();
@@ -19,20 +20,23 @@ function ChatList() {
         />
       </HeaderText>
       <List>
-        <ListBox onClick={() => navigate("/chat/1")}>
-          <img src={addChatIcon} alt="profile" />
-          <div className="content">
-            <div>
-              <span>식단방</span>
-              <span style={{ color: "#d6d6d6", marginLeft: "11px" }}>10</span>
+        {roomData.room.map((r) => (
+          <ListBox onClick={() => navigate(`/chat/${r.roomId}`)} key={r.roomId}>
+            <img src={r.thumbnail} alt="profile" />
+            <div className="content">
+              <div>
+                <span>{r.roomName}</span>
+                <span style={{ color: "#d6d6d6", marginLeft: "11px" }}>
+                  {r.roomNum}
+                </span>
+              </div>
+              <div className="preview">
+                오늘 {chatData[r.roomId]?.length}번째 인증샷을 올렸어요
+              </div>
             </div>
-            <div className="preview">
-              회원님? 이것 뭐에요??🧐 회원님? 이것 뭐에요??🧐회원님? 이것
-              뭐에요??🧐회원님? 이것 뭐에요??🧐
-            </div>
-          </div>
-          <p>12:22</p>
-        </ListBox>
+            <p> {r.date}</p>
+          </ListBox>
+        ))}
       </List>
     </Wrapper>
   );
@@ -84,6 +88,7 @@ const ListBox = styled.div`
     width: 52px;
     height: 52px;
     flex-shrink: 0;
+    object-fit: cover;
     border-radius: 20px;
     border: 0.5px solid var(--gray01, #d6d6d6);
     margin: auto 16px;

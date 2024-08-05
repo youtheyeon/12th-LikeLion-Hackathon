@@ -51,6 +51,8 @@ function CommentUpload() {
 export default CommentUpload;
 
 const Wrapper = styled.div`
+  position: absolute;
+  bottom: 0;
   display: flex;
   width: 100%;
   min-height: 85px;

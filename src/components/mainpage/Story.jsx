@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import sample from "../../assets/images/sample-photo.png";
+import userData from "../../store/userData.json";
 
-function Story({ isMyStory = false }) {
+function Story({ s }) {
   const navigate = useNavigate();
+
+  const isMyStory = s.userId === 0 ? true : false;
 
   const addMyStory = () => {
     isMyStory && navigate("/share");
@@ -11,12 +13,14 @@ function Story({ isMyStory = false }) {
 
   return (
     <Slide isMyStory={isMyStory}>
-      {isMyStory || <img src={sample} alt="Sample" />}
+      {isMyStory || <img src={s.thumbnail} alt="Sample" />}
       <Profile isMyStory={isMyStory} onClick={addMyStory}>
         <div>
-          <img src={sample} alt="sample" />
+          <img src={userData.users[s.userId].img} alt="sample" />
         </div>
-        <span>{isMyStory ? "내 스토리" : "이름"}</span>
+        <span>
+          {isMyStory ? "내 스토리" : `${userData.users[s.userId].userName}`}
+        </span>
       </Profile>
     </Slide>
   );
@@ -41,6 +45,7 @@ const Slide = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
+    object-fit: cover;
     overflow: hidden;
   }
 

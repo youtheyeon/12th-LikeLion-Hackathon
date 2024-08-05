@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "userId": 0,
+      "userName": "이화사자",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQozqfQq8KJ4m9hm7N4LeuVT2r3ilI1byZQQQ&s"
+    },
+    {
+      "userId": 1,
+      "userName": "배기진",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnUPH6Znn5hAU307pMx5qhittonK96yAqUrQ&s"
+    },
+    {
+      "userId": 2,
+      "userName": "요아정",
+      "img": "https://yoajung.co.kr/data/file/main_menu/e126a58ad07337ea5468a971ca8a6533_wyJrIp3h_50237943a27c8ccd1b9ca989b8ac2afe6e7a1fea.png"
+    },
+    {
+      "userId": 3,
+      "userName": "컨디션난조",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLKCoyhWMMLSol1sWFTn1pmPIfU8O4hWqADg&s"
+    }
+  ]
+}
