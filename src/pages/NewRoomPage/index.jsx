@@ -7,7 +7,7 @@ function NewRoomPage() {
 
   return (
     <>
-      <Nav text="인증방 만들기" isComplete={isComplete} />
+      <Nav text="인증방 만들기" CompleteOn={true} isComplete={isComplete} />
       <RoomMaker setIsComplete={setIsComplete} />
     </>
   );

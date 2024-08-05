@@ -1,11 +1,18 @@
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 import sample from "../../assets/images/sample-photo.png";
 
 function Story({ isMyStory = false }) {
+  const navigate = useNavigate();
+
+  const addMyStory = () => {
+    isMyStory && navigate("/share");
+  };
+
   return (
     <Slide isMyStory={isMyStory}>
       {isMyStory || <img src={sample} alt="Sample" />}
-      <Profile isMyStory={isMyStory}>
+      <Profile isMyStory={isMyStory} onClick={addMyStory}>
         <div>
           <img src={sample} alt="sample" />
         </div>
@@ -70,6 +77,11 @@ const Profile = styled.div`
       height: 55.464px;
       flex-shrink: 0;
       border-radius: 50%;
+      cursor: pointer;
     }
+  }
+
+  span {
+    cursor: pointer;
   }
 `;

@@ -1,15 +1,18 @@
 import React from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 import { ReactComponent as Back } from "../../assets/icons/back.svg";
 
-function Nav({ text = "", isComplete = false }) {
+function Nav({ text = "", CompleteOn = false, isComplete = false }) {
+  const navigate = useNavigate();
+
   return (
     <Wrapper isComplete={isComplete}>
       <div>
-        <Back />
+        <Back onClick={() => navigate(-1)} />
         <span>{text}</span>
-        <p>완료</p>
+        {CompleteOn && <p onClick={() => navigate("/main")}>완료</p>}
       </div>
     </Wrapper>
   );

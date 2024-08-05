@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const navigate = useNavigate();
+
   const [isNextClicked, setNextClicked] = useState(false);
   const [imgURL, setImgURL] = useState("");
   const [selectedImg, setSelectedImg] = useState(null);
@@ -48,6 +51,8 @@ const SignUp = () => {
     };
 
     console.log(dataToSubmit);
+
+    navigate("/main");
   };
 
   return (

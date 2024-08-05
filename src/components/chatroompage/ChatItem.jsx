@@ -1,7 +1,10 @@
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 import sample from "../../assets/images/sample-photo.png";
 
 function ChatItem({ isMy = false }) {
+  const navigate = useNavigate();
+
   return (
     <Item isMy={isMy}>
       {isMy || <img src={sample} alt="profile" />}
@@ -9,7 +12,7 @@ function ChatItem({ isMy = false }) {
         {isMy || <span>배기진</span>}
         <p>오늘 1번째 인증샷을 올렸어요</p>
         <img src={sample} alt="sample" />
-        <div>
+        <div onClick={() => navigate("/chat/1/1")}>
           댓글 <b style={{ fontWeight: "600" }}>4</b>
         </div>
       </div>

@@ -1,4 +1,6 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import GlobalStyles from "./GlobalStyle";
+
 import MainPage from "./pages/MainPage";
 import SharePage from "./pages/SharePage";
 import ChatRoomPage from "./pages/ChatRoomPage";
@@ -11,13 +13,16 @@ function App() {
   return (
     <>
       <GlobalStyles />
-      {/* <MainPage /> */}
-      {/* <SharePage /> */}
-      {/* <ChatRoomPage /> */}
-      {/* <ChatCommentPage /> */}
-      {/* <NewRoomPage /> */}
-      {/* <LoginPage /> */}
-      <SignUpPage />
+      <Routes>
+        <Route path={"/"} element={<LoginPage />} />
+        <Route path={"/signup"} element={<SignUpPage />} />
+
+        <Route path={"/main"} element={<MainPage />} />
+        <Route path={"/share"} element={<SharePage />} />
+        <Route path={"/chat/:id"} element={<ChatRoomPage />} />
+        <Route path={"/chat/:id/:pId"} element={<ChatCommentPage />} />
+        <Route path={"/newchat"} element={<NewRoomPage />} />
+      </Routes>
     </>
   );
 }

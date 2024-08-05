@@ -1,6 +1,9 @@
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <Form>
@@ -13,8 +16,8 @@ const Login = () => {
           type="password"
           placeholder="비밀번호 입력"
         />
-        <button>로그인</button>
-        <span>회원가입</span>
+        <button onClick={() => navigate("/main")}>로그인</button>
+        <span onClick={() => navigate("/signup")}>회원가입</span>
       </Form>
     </>
   );

@@ -1,16 +1,25 @@
+import React, { useState } from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+
 import addChatIcon from "../../assets/icons/add-chat-icon.svg";
 
 function ChatList() {
+  const navigate = useNavigate();
+
   return (
     <Wrapper>
       <Hr />
       <HeaderText>
         <span>내 인증방</span>
-        <img src={addChatIcon} alt="add icon" />
+        <img
+          src={addChatIcon}
+          alt="add icon"
+          onClick={() => navigate("/newchat")}
+        />
       </HeaderText>
       <List>
-        <ListBox>
+        <ListBox onClick={() => navigate("/chat/1")}>
           <img src={addChatIcon} alt="profile" />
           <div className="content">
             <div>

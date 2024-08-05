@@ -1,9 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 import { ReactComponent as Partition } from "../../assets/icons/partition.svg";
 
 const StoryMaker = () => {
+  const navigate = useNavigate();
+
   const [image, setImage] = useState(null);
   const [textList, setTextList] = useState([]);
   const [currentText, setCurrentText] = useState("");
@@ -28,10 +31,6 @@ const StoryMaker = () => {
 
   const handleTextChange = (e) => {
     setCurrentText(e.target.value);
-  };
-
-  const handleFontSizeChange = (e) => {
-    setCurrentFontSize(e.target.value);
   };
 
   const addText = () => {
@@ -167,6 +166,8 @@ const StoryMaker = () => {
     link.download = "image.png";
     link.href = canvas.toDataURL();
     link.click();
+
+    navigate("/main");
   };
 
   const handleColorChange = (color) => {
@@ -236,13 +237,6 @@ const StoryMaker = () => {
             onChange={handleTextChange}
             placeholder="텍스트를 입력하세요."
           />
-          {/* <input
-              type="number"
-              value={currentFontSize}
-              onChange={handleFontSizeChange}
-              placeholder="Font Size"
-              style={{ width: "60px", marginLeft: "10px" }}
-            /> */}
         </TextInput>
       )}
     </>
