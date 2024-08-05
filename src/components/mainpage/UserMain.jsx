@@ -6,7 +6,7 @@ function UserMain() {
   return (
     <Wrapper>
       <Header>
-        <div>식단방</div>
+        <div>To Eat</div>
         <Setting />
       </Header>
       <Hr />
@@ -54,6 +54,11 @@ const Header = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 63px 0 17px;
+
+  color: var(--bk, #191919);
+  font-family: Transducer;
+  font-size: 20px;
+  font-weight: 500;
 `;
 
 const Hr = styled.div`
