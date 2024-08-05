@@ -87,10 +87,19 @@ const StoryMaker = () => {
   };
 
   const handleMouseDown = (e) => {
+    handleStart(e.clientX, e.clientY);
+  };
+
+  const handleTouchStart = (e) => {
+    const touch = e.touches[0];
+    handleStart(touch.clientX, touch.clientY);
+  };
+
+  const handleStart = (clientX, clientY) => {
     const canvas = canvasRef.current;
     const rect = canvas.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    const x = clientX - rect.left;
+    const y = clientY - rect.top;
 
     const clickedTextIndex = textList.findIndex(
       ({ text, x: textX, y: textY, fontSize }) => {
@@ -129,11 +138,20 @@ const StoryMaker = () => {
   };
 
   const handleMouseMove = (e) => {
+    handleMove(e.clientX, e.clientY);
+  };
+
+  const handleTouchMove = (e) => {
+    const touch = e.touches[0];
+    handleMove(touch.clientX, touch.clientY);
+  };
+
+  const handleMove = (clientX, clientY) => {
     if (isDragging && selectedTextIndex !== null) {
       const canvas = canvasRef.current;
       const rect = canvas.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+      const x = clientX - rect.left;
+      const y = clientY - rect.top;
 
       const newTextList = textList.map((item, index) => {
         if (index === selectedTextIndex) {
@@ -150,6 +168,11 @@ const StoryMaker = () => {
   };
 
   const handleMouseUp = () => {
+    setIsDragging(false);
+    setSelectedTextIndex(null);
+  };
+
+  const handleTouchEnd = () => {
     setIsDragging(false);
     setSelectedTextIndex(null);
   };
@@ -216,6 +239,9 @@ const StoryMaker = () => {
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
           />
         ) : (
           <div>
